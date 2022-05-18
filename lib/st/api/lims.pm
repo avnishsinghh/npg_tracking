@@ -942,7 +942,7 @@ sub aggregate_xlanes {
   delete $init{'id_run'};
 
   my $lims4compisitions = {};
-  my @test_attrs = qw/sample_id library_id/;
+  my @test_attrs = qw/library_id/;
   my $lanes_rpt_list = npg_tracking::glossary::rpt->deflate_rpts(\@lanes);
   my @aggregated = ();
 
