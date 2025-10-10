@@ -1,5 +1,6 @@
 LIST OF CHANGES
 
+ - Okta implementation with OIDC setup
  - Reduced the standard waiting period after rtacomplete (but no copycomplete)
    from 6 hours to 4 hours, based on customer feedback regarding delayed
    creation of the copycomplete status file on some instruments.
