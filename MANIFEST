@@ -16,6 +16,9 @@ bin/ultimagen_staging_area_monitor
 Build.PL
 cgi-bin/locate_runfolder
 cgi-bin/npg
+cgi-bin/okta-login-logout.cgi
+cgi-bin/okta-post-login-actions.cgi
+cgi-bin/okta-post-logout-redirect.cgi
 Changes
 data/config.ini
 data/gfx/1G.png
@@ -145,7 +148,6 @@ lib/Monitor/Staging.pm
 lib/Monitor/Ultimagen/RunFolder.pm
 lib/Monitor/Ultimagen/Staging.pm
 lib/npg/authentication/sanger_ldap.pm
-lib/npg/authentication/sanger_sso.pm
 lib/npg/controller.pm
 lib/npg/decorator.pm
 lib/npg/model.pm
@@ -829,3 +831,4 @@ t/request.pm
 t/util.pm
 wtsi_local/httpd.conf
 wtsi_local/httpd_sfweb.conf
+wtsi_local/tracking_okta_oidc_auth.conf

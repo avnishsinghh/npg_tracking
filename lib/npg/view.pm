@@ -9,7 +9,6 @@ use Try::Tiny;
 use npg::util;
 use npg::model::user;
 use npg::model::usergroup;
-use npg::authentication::sanger_sso qw/sanger_cookie_name sanger_username/;
 use npg::authentication::sanger_ldap qw/person_info/;
 use npg_tracking::util::config qw/get_config/;
 
@@ -30,10 +29,14 @@ sub new {
   }
 
   if (!$username) {
-    my $cookie = $cgi ? $cgi->cookie(sanger_cookie_name()) : q();
-    if($cookie) {
-      $username = sanger_username($cookie, $self->util()->decription_key());
-    }
+      my $preferred_username = $ENV{'OIDC_CLAIM_preferred_username'};
+
+      my $not_found = -1;
+      if (index($preferred_username, '@') != $not_found) { ## no critic (ValuesAndExpressions::ProhibitNoisyQuotes)
+           $username = (split /@/smx, $preferred_username)[0];
+      } else {
+           $username = $preferred_username;
+      };
   }
 
   my $requestor      = $util->requestor() || npg::model::user->new({
