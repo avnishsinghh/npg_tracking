@@ -1,5 +1,6 @@
 LIST OF CHANGES
 
+ - Okta implementation with basic OIDC setup
  - Changed the default manufacturer to All for the web pages.
  - Support Ultimagen 'only cell paint' cytoprofiling runs
 
